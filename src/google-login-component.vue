@@ -52,8 +52,10 @@
 <script>
 export default {
   name: "GoogleLoginComponent",
-  props: {
-    authUrl: String
+  data() {
+    return {
+      authUrl: ""
+    }
   },
   methods: {
     emitGoogleLoginSuccess: function() {
