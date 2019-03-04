@@ -6,7 +6,7 @@
         gapi.signin2.render('my-signin2', {
           'scope': 'profile email',
           'width': 173,
-          'height': 20,
+          'height': 25,
           'longtitle': true,
           'theme': 'dark',
           'onsuccess': onSuccess,
