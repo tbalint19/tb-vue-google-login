@@ -79,7 +79,6 @@ export default {
       window.emitLoginFailure = this.emitLoginFailure.bind(this)
     },
     disconnectGoogle: function() {
-      delete window["googleAuthUrl"]
       delete window["emitGoogleLoginSuccess"]
       delete window["emitLoginSuccess"]
       delete window["emitGoogleLoginFailure"]
