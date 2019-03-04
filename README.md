@@ -16,7 +16,16 @@ Vue.use(GoogleLoginComponent)
 ```
 
 A global _google-login-component_ tag will be installed.<br>
-Use it in any component you wish:
+
+Add the following tags to your index.html:
+```html
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id"
+  content="your-client-id.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+```
+
+Use _google-login-component_ in any component you wish:
 
 ```html
 <template>
