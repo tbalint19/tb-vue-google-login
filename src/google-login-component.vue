@@ -52,11 +52,6 @@
 <script>
 export default {
   name: "GoogleLoginComponent",
-  data() {
-    return {
-      authUrl: ""
-    }
-  },
   methods: {
     emitGoogleLoginSuccess: function() {
       this.$emit("googleLoginSuccess")
@@ -72,7 +67,6 @@ export default {
       this.$emit("loginFailure")
     },
     setup: function() {
-      window.googleAuthUrl = this.authUrl
       window.emitGoogleLoginSuccess = this.emitGoogleLoginSuccess.bind(this)
       window.emitLoginSuccess = this.emitLoginSuccess.bind(this)
       window.emitGoogleLoginFailure = this.emitGoogleLoginFailure.bind(this)
