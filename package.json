@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "A Vue google-login-plugin",
   "keywords": [
-    "Vue", "VueJS", "social", "plugin", "social-login-plugin", "google", "google-login"
+    "Vue",
+    "VueJS",
+    "social",
+    "plugin",
+    "social-login-plugin",
+    "google",
+    "google-login"
   ],
   "main": "dist/vue-google-login.js",
   "scripts": {
@@ -22,8 +28,8 @@
     "vue": "^2.5.2"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/tbalint19/tb-vue-google-login"
+    "type": "git",
+    "url": "https://github.com/tbalint19/tb-vue-google-login"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",

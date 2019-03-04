@@ -10,9 +10,9 @@ npm i -s tb-vue-google-login
 Import in __main.js__ and install:
 
 ```javascript
-import GoogleLoginComponent from 'tb-vue-google-login'
+import GoogleLoginPlugin from 'tb-vue-google-login'
 
-Vue.use(GoogleLoginComponent)
+Vue.use(GoogleLoginPlugin)
 ```
 
 A global _google-login-component_ tag will be installed.<br>
