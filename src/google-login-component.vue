@@ -28,9 +28,9 @@
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function() {
           if (xhr.status === 200) {
-            window.emitLoginSuccess()
+            window.emitLoginSuccess(xhr.response)
           } else {
-            window.emitLoginFailure()
+            window.emitLoginFailure(xhr.response)
           }
           googleSignOut()
         };
@@ -38,8 +38,8 @@
       }
       function googleSignOut() {
         gapi.auth2.getAuthInstance().signOut()
-          .then(() => console.log("Succes"))
-          .catch(err => console.log("Error", err))
+          .then((res) => window.emitGooglLogoutSuccess(res))
+          .catch(err => window.emitGooglLogoutSuccess(err))
       }
     </script>
     <script
@@ -53,30 +53,40 @@
 export default {
   name: "GoogleLoginComponent",
   methods: {
-    emitGoogleLoginSuccess: function() {
-      this.$emit("googleLoginSuccess")
+    emitGoogleLoginSuccess: function(res) {
+      this.$emit("googleLoginSuccess", res)
     },
-    emitLoginSuccess: function() {
-      this.$emit("loginSuccess")
+    emitLoginSuccess: function(res) {
+      this.$emit("loginSuccess", res)
       this.disconnectGoogle()
     },
-    emitGoogleLoginFailure: function() {
-      this.$emit("googleLoginFailure")
+    emitGoogleLoginFailure: function(res) {
+      this.$emit("googleLoginFailure", res)
     },
-    emitLoginFailure: function() {
-      this.$emit("loginFailure")
+    emitLoginFailure: function(res) {
+      this.$emit("loginFailure", res)
+    },
+    emitGoogleLogoutFailure: function(res) {
+      this.$emit("googleLogoutFailure", res)
+    },
+    emitGooglLogoutSuccess: function(res) {
+      this.$emit("googleLogoutSuccess", res)
     },
     setup: function() {
       window.emitGoogleLoginSuccess = this.emitGoogleLoginSuccess.bind(this)
       window.emitLoginSuccess = this.emitLoginSuccess.bind(this)
       window.emitGoogleLoginFailure = this.emitGoogleLoginFailure.bind(this)
       window.emitLoginFailure = this.emitLoginFailure.bind(this)
+      window.emitGoogleLogoutFailure = this.emitGoogleLogoutFailure.bind(this)
+      window.emitGooglLogoutSuccess = this.emitGooglLogoutSuccess.bind(this)
     },
     disconnectGoogle: function() {
       delete window["emitGoogleLoginSuccess"]
       delete window["emitLoginSuccess"]
       delete window["emitGoogleLoginFailure"]
       delete window["emitLoginFailure"]
+      delete window["emitGoogleLogoutFailure"]
+      delete window["emitGooglLogoutSuccess"]
     }
   },
   created() {
