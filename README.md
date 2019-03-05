@@ -12,7 +12,7 @@ Import in __main.js__ and install:
 ```javascript
 import GoogleLoginPlugin from 'tb-vue-google-login'
 
-Vue.use(GoogleLoginPlugin, { authUrl: "http://your-website.com/api/login" })
+Vue.use(GoogleLoginPlugin, { login: "http://your-website.com/api/login" })
 // /login will receive { "token": "ejysdfusdh.alfjsdk.sdfsdfds" }
 ```
 
@@ -32,7 +32,7 @@ Use _google-login-component_ in any component you wish:
 <template>
   <div id="auth-popup">
     <google-login-component
-      @loginSuccess="loginSuccessHandler()">
+      @loginSuccess="loginSuccessHandler">
     </google-login-component>
   </div>
 </template>
@@ -49,13 +49,13 @@ Emitted events and props:
   <div id="auth-popup">
     <google-login-component
 
-      @loginSuccess="methodCalledWhenAuthIsSuccessfulOnYourSite()"
+      @loginSuccess="methodCalledWhenLoginIsCompletedOnYourSite"
 
-      @googleLoginSuccess="methodCalledBeforeTokenIsSentToYourBackend()"
+      @authSuccess="methodCalledWhenGoogleAuthTokenArrived"
 
-      @loginFailure="methodCalledWhenAuthIsFailedOnYourSite()"
+      @loginFail="methodCalledWhenLoginFailedOnYourSite"
 
-      @googleLoginFailure="methodCalledWhenErrorOccuredWithGoogleLogin()">
+      @authFail="methodCalledWhenGoogleAuthFailed">
 
     </google-login-component>
   </div>
