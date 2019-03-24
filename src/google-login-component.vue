@@ -15,7 +15,7 @@
       }
       function onSuccess(googleUser) {
         var profile = googleUser.getBasicProfile();
-        window.emitGoogleAuthSuccess(profile);
+        window.emitGoogleAuthSuccess(googleUser);
         var id_token = googleUser.getAuthResponse().id_token;
         sendToken(id_token)
       }
